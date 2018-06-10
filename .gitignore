@@ -1,0 +1,9 @@
+**/node_modules
+frontend/dist/
+**/logs
+**/public
+**/*.log
+backend/package-lock.json
+frontend/package-lock.json
+builds
+
