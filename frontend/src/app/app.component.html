@@ -1,33 +1,202 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">YouTube Tutorial</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Register
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/user']" routerLinkActive="active">User Page</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<div class="fixed-top mb-5">
+    <header class="topbar">
+        <div class="container">
+            <div class="row">
+                <!-- social icon-->
+                <div class="col-sm-12">
+                    <ul class="social-network">
+                        <li>
+                            <a class="waves-effect waves-dark" href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="#">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="#">
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="#">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"> CODE CAVE</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Register
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/user']" routerLinkActive="active">User Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
 
-<div class="continer-fluid">
-    <div class="row">
+
+
+<div class="continer-fluid mt-5">
+    <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
             <router-outlet></router-outlet>
         </div>
     </div>
 </div>
+
+
+<!-- //footer -->
+
+
+<footer class="nb-footer mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">Help Center</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> How to Pay</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Sitemap</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Delivery Info</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">Customer information</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> About Us</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Sell Your Items</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> RSS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">Security & privacy</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Terms Of Use</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Return / Refund Policy</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nextbootstrap.com/" title="">
+                                <i class="fa fa-angle-double-right"></i> Store Locations</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">Payment</h2>
+                    <p>Sample HTML page with Twitter's Bootstrap. Code example of Easy Sticky Footer using HTML, Javascript,
+                        jQuery, and CSS. This bootstrap tutorial covers all the major elements of responsive</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Copyright © 2017. Your Company.</p>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+    </section>
+</footer>
