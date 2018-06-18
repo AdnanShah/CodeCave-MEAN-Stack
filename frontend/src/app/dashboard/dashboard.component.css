@@ -18,9 +18,23 @@
   }
 }
 
-.dark-row {
-  background: #aec5e8;
+.menu .accordion-heading {
+  position: relative;
 }
-.light-row {
-  background: #f1f3f0;
+.menu .accordion-heading .edit {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+}
+.menu .area {
+  border-left: 4px solid #f38787;
+}
+.menu .equipamento {
+  border-left: 4px solid #65c465;
+}
+.menu .ponto {
+  border-left: 4px solid #98b3fa;
+}
+.menu .collapse.in {
+  overflow: visible;
 }
