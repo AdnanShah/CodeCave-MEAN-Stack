@@ -10,13 +10,15 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {UserService} from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserhomeComponent
+    UserhomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
