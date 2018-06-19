@@ -13,13 +13,16 @@ import { UserService } from "./user.service";
 import { HttpClientModule } from "@angular/common/http";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 
+import { PostsComponent } from "./posts/posts.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     UserhomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostsComponent
   ],
   imports: [
     NgbModule.forRoot(),
