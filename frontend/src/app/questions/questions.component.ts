@@ -28,7 +28,7 @@ export class QuestionsComponent implements OnInit {
       return;
     }
 
-    this._userService.register(JSON.stringify(this.askForm.value)).subscribe(
+    this._userService.askQuestion(JSON.stringify(this.askForm.value)).subscribe(
       data => {
         console.log(data);
         this._router.navigate(["/login"]);
