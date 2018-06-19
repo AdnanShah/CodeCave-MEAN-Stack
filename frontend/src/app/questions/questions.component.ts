@@ -14,7 +14,15 @@ export class QuestionsComponent implements OnInit {
     username: new FormControl(null, Validators.required),
     question: new FormControl(null, Validators.required)
   });
-  constructor(private _router: Router, private _userService: UserService) {}
+  constructor(private _router: Router, private _userService: UserService) {
+    this._userService.posts().subscribe(
+      data => {
+        console.log(data) 
+        // error => this._router.navigate(["/login"]);
+      },
+      error => console.error(error)
+    );
+  }
 
   ngOnInit() {}
 
@@ -28,13 +36,13 @@ export class QuestionsComponent implements OnInit {
       return;
     }
 
-    this._userService.askQuestion(JSON.stringify(this.askForm.value)).subscribe(
-      data => {
-        console.log(data);
-        this._router.navigate(["/login"]);
-      },
-      error => console.error(error)
-    );
-    console.log(this.askForm.value);
+    //   this._userService.posts(JSON.stringify(this.askForm.value)).subscribe(
+    //     data => {
+    //       console.log(data);
+    //       this._router.navigate(["/login"]);
+    //     },
+    //     error => console.error(error)
+    //   );
+    //   console.log(this.askForm.value);
   }
 }

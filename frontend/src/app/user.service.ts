@@ -13,14 +13,23 @@ export class UserService {
       responseType: "text"
     });
   }
-  askQuestion(body: any) {
-    return this._http.post("http://127.0.0.1:3000/users/create", body, {
+
+  posts() {
+    return this._http.get("http://127.0.0.1:3000/posts", {
       observe: "body",
       withCredentials: true,
-      headers: new HttpHeaders().append("Content-Type", "application/json"),
-      responseType: "text"
+      headers: new HttpHeaders().append("Content-Type", "application/json")
     });
   }
+
+  // askQuestion(body: any) {
+  //   return this._http.post("http://127.0.0.1:3000/users/create", body, {
+  //     observe: "body",
+  //     withCredentials: true,
+  //     headers: new HttpHeaders().append("Content-Type", "application/json"),
+  //     responseType: "text"
+  //   });
+  // }
 
   login(body: any) {
     return this._http.post("http://127.0.0.1:3000/users/login", body, {
