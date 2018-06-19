@@ -12,12 +12,24 @@ export class PostsComponent implements OnInit {
   constructor(private _router: Router, private _userService: UserService) {
     this._userService.posts().subscribe(
       data => {
-        console.log("data", data);
+        // console.log("data", data);
+        this.displayData(data);
         // error => this._router.navigate(["/login"]);
       },
       error => console.error(error)
     );
   }
+  questions: Array<any> = [];
 
-  ngOnInit() {}
+  displayData(data) {
+    data.map((user, id) => {
+      // console.log(user);
+      // console.log(user.Questions);
+      // let obj = Object.assign({}, user.Questions);
+      return this.questions.push(...user.Questions);
+    });
+  }
+  ngOnInit() {
+    console.log("questions", this.questions);
+  }
 }
