@@ -15,13 +15,6 @@ export class QuestionsComponent implements OnInit {
     question: new FormControl(null, Validators.required)
   });
   constructor(private _router: Router, private _userService: UserService) {
-    this._userService.posts().subscribe(
-      data => {
-        console.log(data) 
-        // error => this._router.navigate(["/login"]);
-      },
-      error => console.error(error)
-    );
   }
 
   ngOnInit() {}
