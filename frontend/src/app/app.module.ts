@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 
 import { PostsComponent } from "./posts/posts.component";
+import { QuestionsComponent } from "./questions/questions.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PostsComponent } from "./posts/posts.component";
     RegisterComponent,
     UserhomeComponent,
     DashboardComponent,
-    PostsComponent
+    PostsComponent,
+    QuestionsComponent
   ],
   imports: [
     NgbModule.forRoot(),
