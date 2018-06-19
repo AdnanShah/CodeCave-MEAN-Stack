@@ -6,7 +6,48 @@
 
     <div class="container m-3">
       <div class="container">
+        <div class="continer-fluid mt-5">
+          <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
 
+              <div class="row" style="margin-top:40px; padding:20px; background-color:rgba(0,0,0,0.2)54d400;border-radius:15px;
+            -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
+                <!-- <div class="col-sm-12" style="text-align:center;">
+                Register
+              </div> -->
+
+                <div class="col-sm-12">
+                  <form [formGroup]="askForm">
+                    <div class="form-group">
+                      <label for="exampleInputUsername">Username</label>
+                      <input formControlName="username" type="text" class="form-control" id="exampleInputUsername" aria-describedby="userHelp"
+                        placeholder="username">
+                      <small id="userHelp" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="passwordInput">Question</label>
+                      <textarea formControlName="question" type="text" class="form-control"
+                       id="question" aria-describedby="passHelp" placeholder="Question">
+                     </textarea>
+                      <!-- <small id="passHelp" class="form-text text-muted"></small> -->
+                    </div>
+                    <div class="form-group" style="text-align:center;">
+                      <button type="button" class="btn btn-dark" (click)="askQuestion()">Ask Question</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
