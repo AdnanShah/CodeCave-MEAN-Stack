@@ -1,29 +1,50 @@
-var models = require("../models");
-var express = require("express");
-var router = express.Router();
+/**
+ * Created by Abdul jabbar on 20/07/2017.
+ */
+/* GET home page. */
+var jsonwebtoken = require('jsonwebtoken');
+var users = require('./api/users');
+var profile = require('./api/profile');
+var catalog = require('./api/catalog');
 
-router.get("/", function(req, res) {
-  models.User.findAll({
-    include: [models.Task]
-  }).then(function(users) {
-    res.render("index", {
-      title: "Sequelize: Express Example",
-      users: users
-    });
-  });
-});
+var config = require('../config/configuration.js');
+var apiPrefix = '/api/';
 
-router.get("/posts", function(req, res) {
-  models.Create.findAll({
-    include: [models.Questions]
-  }).then(function(users) {
-    res.send(users);
+console.log("Regime is running on port 3338!");
 
-    // res.render("index", {
-    //   title: "Sequelize: Express Example",
-    //   users: users
+exports.router = function (app) {
+    // app.use((req, res, next) => {
+    //     if (req.headers['x-access-key'] === config.accessKey) {
+    //         next();
+    //     } else {
+    //         res.json({ status: 401, message: 'ServerInvalidSecretKey' });
+    //        // next();
+    //     }
+    //    // next();
     // });
-  });
-});
+    app.use(apiPrefix + 'users', users);
+    app.use(apiPrefix + 'profile', profile);
 
-module.exports = router;
+    //start middleware
+    app.use((req, res, next) => {
+        console.log('*----------MiddleWare------------*');
+        var token = req.body.token || req.query.token || req.headers["x-access-token"];
+        // var token ="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4NCwibmFtZSI6IkFsZXgiLCJpYXQiOjE1MDkyOTMzNDN9.iHQDAtKxfFjN_pWLzcC6uqm1k1TrsZIF6Sq0P5HgmxI";
+        if (token) {
+            jsonwebtoken.verify(token, config.secret, (err, decoded) => {
+                if (err) {
+                    res.status(403).send({ success: false, status: 403, message: "Invalid user token." });
+                } else {
+                    req.decoded = decoded;
+                    next();
+                }
+            });
+        } else {
+            res.status(403).send({ success: false, message: "No token provided" });
+        }
+    }); //end middleware
+    app.use(apiPrefix + 'profile', profile);
+    // app.use(apiPrefix + 'catalog', catalog);
+};
+
+

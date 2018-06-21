@@ -1,34 +1,46 @@
 {
-  "name": "express-example",
-  "version": "0.0.0",
-  "private": true,
+  "name": "lookmeupbackend",
+  "version": "1.0.0",
   "scripts": {
-    "start": "node ./bin/www",
-    "test": "npm run test-unit && npm run test-integration",
-    "test-unit": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/unit/*.test.js",
-    "test-integration": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/integration/*.test.js"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "bluebird": "^3.5.1",
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
+    "async": "^1.5.2",
+    "base64-img": "^1.0.3",
+    "base64-to-image": "^1.0.2",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "~1.13.2",
+    "cloudinary": "^1.10.0",
+    "connect-timeout": "^1.7.0",
+    "cookie-parser": "~1.3.5",
     "cors": "^2.8.4",
-    "debug": "^3.1.0",
+    "debug": "~2.2.0",
+    "ejs": "~2.3.3",
     "express": "^4.16.2",
-    "morgan": "^1.7.0",
-    "mysql": "^2.15.0",
-    "mysql2": "^1.5.3",
-    "pg": "^6.1.0",
-    "pug": "^2.0.0-rc.4",
-    "sequelize": "^3.23.6",
-    "sequelize-cli": "^3.2.0",
+    "express-validator": "^3.2.1",
+    "file-system": "^2.2.2",
+    "google-translate-api": "^2.3.0",
+    "jsonwebtoken": "^5.5.4",
+    "moment": "^2.11.2",
+    "morgan": "~1.6.1",
+    "multer": "^1.3.0",
+    "multer-storage-cloudinary": "^2.2.1",
+    "mysql": "^2.10.2",
+    "mysql2": "^1.3.6",
+    "node-seaweedfs": "^1.1.0",
+    "nodemailer": "^2.7.2",
+    "nodemon": "^1.12.1",
+    "promise-mysql": "^3.0.2",
+    "qrcode": "^1.2.0",
+    "sequelize": "^4.3.2",
     "serve-favicon": "~2.3.0",
-    "sqlite3": "^3.0.8"
+    "weed-fs": "^0.1.8",
+    "winston": "^2.1.1"
   },
   "devDependencies": {
-    "cross-env": "^3.1.3",
-    "expect.js": "^0.3.1",
-    "mocha": "^3.0.2",
-    "supertest": "^2.0.0"
-  }
+    "nodemon": "^1.11.0"
+  },
+  "author": "abdul jabbar",
+  "license": "ISC"
 }
