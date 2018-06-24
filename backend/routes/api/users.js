@@ -38,7 +38,7 @@ router.post("/register", (req, res) => {
         // name: req.body.name,
         userName: req.body.username,
         email: req.body.email,
-        password: req.body.cpass,
+        password: req.body.cpass
         // Role: "User",
         // enabled: 1,
         // Created_date: moment().format("YYYY-MM-DD HH:mm:ss")
@@ -64,7 +64,6 @@ router.post("/register", (req, res) => {
                 conn
                   .query(insertQry, user_signup_data)
                   .then(rs => {
-                    
                     let claims = {
                       UserID: rs.insertId,
                       FirstName: req.body.name
@@ -115,8 +114,7 @@ router.post("/signin", (req, res) => {
     .notEmpty()
     .isEmail();
   req.checkBody("password").notEmpty();
-  const qry =
-    'select * from creates where email = "' + req.body.email + '" ';
+  const qry = 'select * from creates where email = "' + req.body.email + '" ';
   Promise.using(mysql.getSqlConn(), conn => {
     conn
       .query(qry)
@@ -142,10 +140,96 @@ router.post("/signin", (req, res) => {
   });
 });
 
+router.post("/register", (req, res) => {
+  // req.checkBody("name").notEmpty();
+  // req.checkBody("email").notEmpty();
+  // req.checkBody("password").notEmpty();
+
+  req.getValidationResult().then(error => {
+    if (!error.isEmpty()) {
+      res.json({
+        status: 403,
+        message: "ServerMandatoryParameterMissing",
+        error: error
+      });
+    } else {
+      let user_signup_data = {
+        // name: req.body.name,
+        userName: req.body.username,
+        email: req.body.email,
+        password: req.body.cpass
+        // Role: "User",
+        // enabled: 1,
+        // Created_date: moment().format("YYYY-MM-DD HH:mm:ss")
+      };
+      const saltRounds = 10;
+
+      bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+        user_signup_data.password = hash;
+        console.log(user_signup_data.password);
+        const selectQry =
+          "select email from creates" +
+          ' where email = "' +
+          req.body.email +
+          '" ';
+        const insertQry = `insert into creates set ?`;
+        Promise.using(mysql.getSqlConn(), conn => {
+          conn
+            .query(selectQry)
+            .then(rows => {
+              if (rows.length > 0) {
+                res.json({ status: 403, message: "EmailAlreadyExists" });
+              } else {
+                conn
+                  .query(insertQry, user_signup_data)
+                  .then(rs => {
+                    let claims = {
+                      UserID: rs.insertId,
+                      FirstName: req.body.name
+                    };
+                    let token = jwt.sign(claims, config.secret);
+                    //let newCode = Math.floor(100000 + Math.random() * 900000);
+                    let qryData = {
+                      token: token
+                    };
+                    conn
+                      .query("update creates set ? where email = ?", [
+                        qryData,
+                        req.body.email
+                      ])
+                      .then(() => {
+                        res.json({
+                          status: 200,
+                          message: "User Registered",
+                          token: qryData.token
+                        });
+                      })
+                      .catch(err => {
+                        res.json({
+                          status: 401,
+                          message: "User Not Registered" + err
+                        });
+                      });
+                  })
+                  .catch(err => {
+                    res.json({ status: 500, error: "QueryError" + err });
+                  });
+              }
+            })
+            .catch(err => {
+              res.json({
+                status: 401,
+                message: "Error in Insert Query " + err
+              });
+            }); //insertConn
+        }); //promise
+      });
+    }
+  });
+});
 router.get("/all", (req, res) => {
-  console.log("/api/users/all",req.body);
-  const qry =
-    'select * from creates where email = "' + req.body.email + '" ';
+  console.log("/api/users/all", req.body);
+  const qry = 'select * from creates where email = "' + req.body.email + '" ';
   Promise.using(mysql.getSqlConn(), conn => {
     conn
       .query(qry)

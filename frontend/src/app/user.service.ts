@@ -22,14 +22,14 @@ export class UserService {
     });
   }
 
-  // askQuestion(body: any) {
-  //   return this._http.post("http://127.0.0.1:4201/users/create", body, {
-  //     observe: "body",
-  //     withCredentials: true,
-  //     headers: new HttpHeaders().append("Content-Type", "application/json"),
-  //     responseType: "text"
-  //   });
-  // }
+  askQuestion(body: any) {
+    return this._http.post("http://127.0.0.1:4201/api/questions/questions", body, {
+      observe: "body",
+      // withCredentials: true,
+      headers: new HttpHeaders().append("Content-Type", "application/json"),
+      // responseType: "text"
+    });
+  }
 
   login(body: any) {
     return this._http.post("http://127.0.0.1:4201/api/users/signin", body, {

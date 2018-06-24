@@ -6,11 +6,12 @@ var jsonwebtoken = require('jsonwebtoken');
 var users = require('./api/users');
 var profile = require('./api/profile');
 var catalog = require('./api/catalog');
+var questions = require('./api/questions');
 
 var config = require('../config/configuration.js');
 var apiPrefix = '/api/';
 
-console.log("Regime is running on port 3338!");
+console.log("App is running on port 4201!");
 
 exports.router = function (app) {
     // app.use((req, res, next) => {
@@ -24,6 +25,7 @@ exports.router = function (app) {
     // });
     app.use(apiPrefix + 'users', users);
     app.use(apiPrefix + 'profile', profile);
+    app.use(apiPrefix + 'questions', questions);
 
     //start middleware
     app.use((req, res, next) => {
