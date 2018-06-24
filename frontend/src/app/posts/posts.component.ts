@@ -15,7 +15,6 @@ export class PostsComponent implements OnInit {
       data => {
         console.log("data", data);
         this.displayData(data);
-        // error => this._router.navigate(["/login"]);
       },
       error => console.error(error)
     );

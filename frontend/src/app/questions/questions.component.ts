@@ -39,7 +39,7 @@ export class QuestionsComponent implements OnInit {
     this._userService.askQuestion(this.askForm.value).subscribe(
       data => {
         console.log(data);
-        // this._router.navigate(["/login"]);
+        this._router.navigate(["/dashboard"]);
       },
       error => console.error(error)
     );

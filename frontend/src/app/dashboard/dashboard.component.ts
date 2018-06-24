@@ -21,11 +21,11 @@ export class DashboardComponent implements OnInit {
   questions: Array<any> = [];
 
   displayData(data) {
-    data.map((user, id) => {
+    data.data.map((user, id) => {
       // console.log(user);
       // console.log(user.Questions);
       // let obj = Object.assign({}, user.Questions);
-      return this.questions.push(...user.Questions);
+      return this.questions.push(user);
     });
   }
   ngOnInit() {
