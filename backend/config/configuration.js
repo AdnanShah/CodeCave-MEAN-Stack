@@ -11,11 +11,11 @@
 
 var serverURL = 'https://localhost:3338/';
 var secret = 'hT_$øper$ecreT';
-var host = '148.163.100.130';
-var user = 'fameentc_mirza01';
-var password = 'championofqrcode';
+var host = 'localhost';
+var user = 'root';
+var password = null;
 //var password = 'hyj6h5H6!5Tr';
-var database = 'fameentc_qrdata';
+var database = 'codecave';
 var accessKey = "UUAU-13T6-10R9-L6R5"; 
 module.exports.secret = secret;
 module.exports.host = host;

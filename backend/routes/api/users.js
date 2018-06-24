@@ -22,9 +22,9 @@ cloudinary.config({
   api_secret: "rRYPoWVyyG1RqlzgebDZGMX04mw"
 });
 router.post("/register", (req, res) => {
-  req.checkBody("name").notEmpty();
-  req.checkBody("email").notEmpty();
-  req.checkBody("password").notEmpty();
+  // req.checkBody("name").notEmpty();
+  // req.checkBody("email").notEmpty();
+  // req.checkBody("password").notEmpty();
 
   req.getValidationResult().then(error => {
     if (!error.isEmpty()) {
@@ -35,13 +35,13 @@ router.post("/register", (req, res) => {
       });
     } else {
       let user_signup_data = {
-        name: req.body.name,
-        username: req.body.name,
+        // name: req.body.name,
+        userName: req.body.username,
         email: req.body.email,
-        password: req.body.password,
-        Role: "User",
-        enabled: 1,
-        Created_date: moment().format("YYYY-MM-DD HH:mm:ss")
+        password: req.body.cpass,
+        // Role: "User",
+        // enabled: 1,
+        // Created_date: moment().format("YYYY-MM-DD HH:mm:ss")
       };
       const saltRounds = 10;
 
@@ -49,11 +49,11 @@ router.post("/register", (req, res) => {
         user_signup_data.password = hash;
         console.log(user_signup_data.password);
         const selectQry =
-          "select email from Admin_Users" +
+          "select email from creates" +
           ' where email = "' +
           req.body.email +
           '" ';
-        const insertQry = `insert into Admin_Users set ?`;
+        const insertQry = `insert into creates set ?`;
         Promise.using(mysql.getSqlConn(), conn => {
           conn
             .query(selectQry)
@@ -74,7 +74,7 @@ router.post("/register", (req, res) => {
                       token: token
                     };
                     conn
-                      .query("update Admin_Users set ? where email = ?", [
+                      .query("update creates set ? where email = ?", [
                         qryData,
                         req.body.email
                       ])
@@ -108,14 +108,14 @@ router.post("/register", (req, res) => {
     }
   });
 });
-router.post("/signIn", (req, res) => {
+router.post("/signin", (req, res) => {
   req
     .checkBody("email")
     .notEmpty()
     .isEmail();
   req.checkBody("password").notEmpty();
   const qry =
-    'select * from Admin_Users where email = "' + req.body.email + '" ';
+    'select * from creates where email = "' + req.body.email + '" ';
   Promise.using(mysql.getSqlConn(), conn => {
     conn
       .query(qry)
@@ -143,7 +143,8 @@ router.post("/signIn", (req, res) => {
 
 router.get("/all", (req, res) => {
   console.log("/api/users/all");
-  const qry = "select * from Admin_Users";
+  const qry =
+    'select * from creates where email = "' + req.body.email + '" ';
   Promise.using(mysql.getSqlConn(), conn => {
     conn
       .query(qry)
