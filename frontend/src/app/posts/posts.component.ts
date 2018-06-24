@@ -9,6 +9,7 @@ import { UserService } from "../user.service";
   styleUrls: ["./posts.component.css"]
 })
 export class PostsComponent implements OnInit {
+  questions: Array<any> = [];
   constructor(private _router: Router, private _userService: UserService) {
     this._userService.posts().subscribe(
       data => {
@@ -19,14 +20,15 @@ export class PostsComponent implements OnInit {
       error => console.error(error)
     );
   }
-  questions: Array<any> = [];
 
   displayData(data) {
-    data.map((user, id) => {
+    console.log("questions", this.questions, data);
+
+    data.data.map((user, id) => {
       // console.log(user);
       // console.log(user.Questions);
       // let obj = Object.assign({}, user.Questions);
-      return this.questions.push(...user.Questions);
+      return this.questions.push(user);
     });
   }
   ngOnInit() {
