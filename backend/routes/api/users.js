@@ -64,6 +64,7 @@ router.post("/register", (req, res) => {
                 conn
                   .query(insertQry, user_signup_data)
                   .then(rs => {
+                    
                     let claims = {
                       UserID: rs.insertId,
                       FirstName: req.body.name

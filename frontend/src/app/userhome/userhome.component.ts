@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class UserhomeComponent implements OnInit {
   username: any = "";
-  currentUser: Array<any> = [];
+  currentUser: any;
   // users: User[] = [];
   constructor(private _user: UserService, private _router: Router) {
     // this._user
@@ -19,7 +19,7 @@ export class UserhomeComponent implements OnInit {
     //     error => this._router.navigate(["/login"])
     //   );
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    console.log("currentUser", this.currentUser.data[0].userName);
+    console.log("currentUser", this.currentUser);
     this.username = this.currentUser.data[0].userName;
   }
 
