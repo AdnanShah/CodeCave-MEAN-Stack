@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
   constructor(private _router: Router, private _userService: UserService) {
     this._userService.posts().subscribe(
       data => {
-        // console.log("data", data);
+        console.log("data", data);
         this.displayData(data);
         // error => this._router.navigate(["/login"]);
       },

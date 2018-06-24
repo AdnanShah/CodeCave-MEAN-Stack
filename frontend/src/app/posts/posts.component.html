@@ -7,15 +7,9 @@
     <div class="container m-3">
       <div class="container">
         <div class="col-md-12" *ngFor="let question of questions">
-
-
           <h1>{{question.question}}</h1>
           <p class="bg-success text-light">Answers: </p>
           <p>{{question.answers}} </p>
-
-
-
-
           <div>
             <span class="badge">Posted {{question.createdAt}}</span>
             <div class="pull-right">
