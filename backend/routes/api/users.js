@@ -142,7 +142,7 @@ router.post("/signin", (req, res) => {
 });
 
 router.get("/all", (req, res) => {
-  console.log("/api/users/all");
+  console.log("/api/users/all",req.body);
   const qry =
     'select * from creates where email = "' + req.body.email + '" ';
   Promise.using(mysql.getSqlConn(), conn => {
