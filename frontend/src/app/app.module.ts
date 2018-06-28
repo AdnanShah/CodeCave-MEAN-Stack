@@ -16,6 +16,8 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { PostsComponent } from "./posts/posts.component";
 import { QuestionsComponent } from "./questions/questions.component";
 
+import { AuthGuard } from "./auth/auth.guard";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { QuestionsComponent } from "./questions/questions.component";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

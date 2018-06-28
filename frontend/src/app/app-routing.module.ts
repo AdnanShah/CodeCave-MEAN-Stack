@@ -8,12 +8,18 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { PostsComponent } from "./posts/posts.component";
 import { QuestionsComponent } from "./questions/questions.component";
 
+import { AuthGuard } from "./auth/auth.guard";
+
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "user", component: UserhomeComponent },
-  { path: "dashboard", component: DashboardComponent },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "posts", component: PostsComponent },
   { path: "questions", component: QuestionsComponent },
   { path: "**", redirectTo: "login" }
