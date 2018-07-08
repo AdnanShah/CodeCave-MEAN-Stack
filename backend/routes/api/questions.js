@@ -102,7 +102,8 @@ router.post("/questions", (req, res) => {
 router.get("/posts", (req, res) => {
   console.log("/api/users/all", req.body);
   // const qry = 'select * from questions where email = "' + req.body.email + '" ';
-  const qry = "select * from questions ";
+  const qry =
+    "select * from questions left JOIN answers  ON questions.id=answers.questionsID";
   Promise.using(mysql.getSqlConn(), conn => {
     conn
       .query(qry)

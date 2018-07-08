@@ -108,6 +108,7 @@ router.post("/register", (req, res) => {
     }
   });
 });
+
 router.post("/signin", (req, res) => {
   req
     .checkBody("email")
@@ -246,6 +247,66 @@ router.get("/all", (req, res) => {
       });
   });
 });
+
+router.put("/addAnswer", (req, res) => {
+  console.log("req", req.body);
+  let addAnswer = "";
+  const date = moment(req.body.itemDate).format("YYYY-MM-DD HH:mm:ss");
+  if (req.body.itemImage) {
+    let base64Data = req.body.itemImage.replace(/^data:;base64,/, "");
+    let bufferData = new Buffer(base64Data, "base64");
+    require("fs").writeFileSync("abc.jpg", bufferData, err => {
+      console.log("Image error: ", err);
+    });
+    cloudinary.uploader.upload(req.body.itemImage, function(result) {
+      console.log("Image result: ", result);
+      req.body.lang == "en"
+        ? (addAnswer = `update items set 
+              OfferDate = '${date}', ItemName= ${
+            req.body.itemName
+          }, ItemImage = ${result.url}
+              where ItemID = ${req.body.itemID}
+              `)
+        : (addAnswer = `update items set 
+              OfferDate = '${date}', ItemNameArabic= '${
+            req.body.itemName
+          }', ItemImageArabic = '${result.url}'
+              where ItemID = ${req.body.itemID}
+              `);
+      Promise.using(mysql.getSqlConn(), con => {
+        con
+          .query(addAnswer)
+          .then(effect => {
+            console.log(effect);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
+    });
+  } else {
+    req.body.lang == "en"
+      ? (addAnswer = `update items set 
+              OfferDate = '${date}', ItemName= '${req.body.itemName}'
+              where ItemID = ${req.body.itemID}
+              `)
+      : (addAnswer = `update items set 
+              OfferDate = '${date}', ItemNameArabic= '${req.body.itemName}'
+              where ItemID = ${req.body.itemID}
+              `);
+    Promise.using(mysql.getSqlConn(), con => {
+      con
+        .query(addAnswer)
+        .then(effect => {
+          console.log(effect);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
+  }
+});
+//========================================last=========================================================
 
 module.exports = router;
 
