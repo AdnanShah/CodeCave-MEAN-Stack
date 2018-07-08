@@ -10,7 +10,6 @@ import { QuestionsComponent } from "./questions/questions.component";
 
 import { AuthGuard } from "./auth/auth.guard";
 
-
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
@@ -22,7 +21,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: "posts", component: PostsComponent },
-  { path: "questions", component: QuestionsComponent },
+  {
+    path: "questions",
+    component: QuestionsComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "**", redirectTo: "login" }
 ];
 
