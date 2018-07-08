@@ -10,6 +10,7 @@ import { QuestionsComponent } from "./questions/questions.component";
 
 import { AuthGuard } from "./auth/auth.guard";
 
+
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
