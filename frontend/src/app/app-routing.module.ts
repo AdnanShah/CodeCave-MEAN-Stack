@@ -26,7 +26,7 @@ const routes: Routes = [
     component: QuestionsComponent,
     canActivate: [AuthGuard]
   },
-  { path: "**", redirectTo: "login" }
+  { path: "**", component: LoginComponent }
 ];
 
 @NgModule({
