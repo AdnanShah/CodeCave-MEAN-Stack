@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
     cpass: new FormControl(null, Validators.required)
   });
   constructor(private _router: Router, private _userService: UserService) {}
+  logInError: any = null;
+  formError: boolean = false;
 
   ngOnInit() {}
 
@@ -30,6 +32,9 @@ export class RegisterComponent implements OnInit {
         this.registerForm.controls.cpass.value
     ) {
       console.log("Invalid Form");
+      this.formError = true;
+      this.logInError = null;
+
       return;
     }
 
@@ -40,7 +45,12 @@ export class RegisterComponent implements OnInit {
           console.log(data);
           this._router.navigate(["/login"]);
         },
-        error => console.error(error)
+        error => {
+          this.formError = false;
+          this.logInError = error.error.message;
+
+          console.error(error);
+        }
       );
     console.log(this.registerForm.value);
   }

@@ -28,11 +28,7 @@
                         <a class="nav-link" [routerLink]="['/questions']" routerLinkActive="active">Ask Questions</a>
                     </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li> -->
-
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf='!_userService.isLoggedIn()'>
                         <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Register
                         </a>
                     </li>
