@@ -19,9 +19,13 @@
 
 
             <ng-template ngbPanelContent *ngFor="let ans of question.answers">
-              <li class="" *ngFor="let ans of question.answers">
-                {{ans.ans}}<span  class="pull-right">{{ans.email}}</span>
-              </li>
+              <ul>
+                {{question.question}}
+                <li class="" *ngFor="let ans of question.answers">
+                  {{ans.ans}}
+                  <span class="pull-right">{{ans.email}}</span>
+                </li>
+              </ul>
 
               <br/>
             </ng-template>
