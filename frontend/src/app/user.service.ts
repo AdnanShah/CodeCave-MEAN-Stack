@@ -37,6 +37,18 @@ export class UserService {
       }
     );
   }
+  ansQuestion(body: any) {
+    return this._http.post(
+      "http://127.0.0.1:4201/api/questions/questions",
+      body,
+      {
+        observe: "body",
+        // withCredentials: true,
+        headers: new HttpHeaders().append("Content-Type", "application/json")
+        // responseType: "text"
+      }
+    );
+  }
 
   login(body: any) {
     return this._http.post("http://127.0.0.1:4201/api/users/signin", body, {

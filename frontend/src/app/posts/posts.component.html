@@ -7,11 +7,32 @@
     <div class="container m-3">
       <div class="container">
         <div class="col-md-12" *ngFor="let question of questions">
-          <h1>{{question.question}}</h1>
+          <h1>
+            <u>{{question.title}}</u>
+          </h1>
+          <h3 class="text-muted">{{question.question}}</h3>
           <h4>
-            <u>Answers:</u>
+            <u class="text-primary">Answers:</u>
           </h4>
-          <p class=" pl-2">{{question.answers}}</p>
+          <div>
+            <ul>
+              <li class="" *ngFor="let ans of question.answers">
+                {{ans.ans}}
+                <span class="pull-right">{{ans.email}}</span>
+              </li>
+            </ul>
+            <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+              <div class="form-group">
+                <label for="comment">Your Answer:</label>
+                <textarea name="ans" class="form-control" rows="5" id="comment" [(ngModel)]="data.ans"></textarea>
+                <button type="submit">Send</button>
+              </div>
+            </form>
+            <br/>
+          </div>
+
+
           <p class="bg-success text-light pl-2">Autrhor: {{question.name}}</p>
           <!-- <p> </p> -->
           <div>
