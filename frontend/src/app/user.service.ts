@@ -6,6 +6,7 @@ export class UserService {
   constructor(private _http: HttpClient) {}
 
   logoutError: boolean = false;
+  isLogIn: boolean = false;
 
   register(body: any) {
     return this._http.post("http://127.0.0.1:4201/api/users/register", body, {
@@ -54,13 +55,15 @@ export class UserService {
   }
 
   logout() {
-    this.logoutError = true;
     localStorage.removeItem("currentUser");
-    console.log("logoutError", this.logoutError);
   }
-  
+
   isLoggedIn() {
-    this.logoutError = false;
-    return !!localStorage.getItem("currentUser");
+    if (localStorage.getItem("currentUser") == null) {
+      this.isLogIn = false;
+      return this.isLogIn;
+    } else {
+      return true;
+    }
   }
 }

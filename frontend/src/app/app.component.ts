@@ -8,18 +8,5 @@ import { UserService } from "./user.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  // currentUser: any;
-  title = "app";
-  showButton: boolean;
-
-  constructor(private _userService: UserService) {
-    // console.log("currentUser", this.currentUser,this._userService.logoutError);
-    this.showButton = this._userService.logoutError;
-  }
-  currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  // showButton = this.currentUser === null ? false : true;
-  showButtonFun() {
-    console.log("currentUser", this.currentUser, this._userService.logoutError);
-    this.showButton = !this._userService.logoutError;
-  }
+  constructor(private _userService: UserService) {}
 }
