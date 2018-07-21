@@ -20,6 +20,8 @@ export class PostsComponent implements OnInit {
   questions: Array<any> = [];
 
   constructor(private _router: Router, private _userService: UserService) {
+    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
     this.email = this.currentUser.data[0].email;
     this._userService.posts().subscribe(
       data => {
@@ -38,16 +40,19 @@ export class PostsComponent implements OnInit {
       this.questions.push({
         title: user.title,
         question: user.question,
-        answers: a
+        answers: a,
+        questionsID:user.questionsID
       });
     });
   }
-  ansQuestion() {
+  ansQuestion(id) {
+    console.log(id)
     if (!this.ansForm.valid) {
       console.log("Invalid Form");
       return;
     }
     this.ansForm.value.email = this.email;
+    this.ansForm.value.questionsID = id;
 
     this._userService.ansQuestion(this.ansForm.value).subscribe(
       data => {

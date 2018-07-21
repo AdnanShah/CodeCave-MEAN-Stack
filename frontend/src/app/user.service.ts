@@ -39,7 +39,7 @@ export class UserService {
   }
   ansQuestion(body: any) {
     return this._http.post(
-      "http://127.0.0.1:4201/api/questions/questions",
+      "http://127.0.0.1:4201/api/questions/answer",
       body,
       {
         observe: "body",
