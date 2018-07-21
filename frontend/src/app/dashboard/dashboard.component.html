@@ -7,21 +7,45 @@
     <div class="container">
       <div class="">
         <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let question of questions">
+          <!-- (click)="handleData(question,i)" -->
           <ngb-panel>
             <ng-template ngbPanelTitle class="row">
               <span class="col">
-                <b>{{question.question}}</b>
+                <b>{{question.title}}</b>
                 <span class="float-right"> Rating &#9733;
                 </span>
               </span>
             </ng-template>
+
+
+            <ng-template ngbPanelContent *ngFor="let ans of question.answers">
+              <li class="" *ngFor="let ans of question.answers">
+                {{ans.ans}}<span  class="pull-right">{{ans.email}}</span>
+              </li>
+
+              <br/>
+            </ng-template>
+
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+      <!-- <div class="">
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let ans of answers">
+          <ngb-panel>
+            <ng-template ngbPanelTitle class="row">
+              <span class="col"> -->
+      <!-- <b>{{question.question}}</b> -->
+      <!-- <span class="float-right"> Rating &#9733;
+                </span>
+              </span>
+            </ng-template>
             <ng-template ngbPanelContent>
-              {{question.answers}}
+              {{ans.answer[1]}}
             </ng-template>
           </ngb-panel>
         </ngb-accordion>
 
-      </div>
+      </div> -->
     </div>
 
   </div>
