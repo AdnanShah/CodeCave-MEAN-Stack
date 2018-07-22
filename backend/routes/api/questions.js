@@ -23,7 +23,7 @@ router.post("/answer", (req, res) => {
   let sql = `UPDATE answers SET answers ='${JSON.stringify(jsonData)}'
    WHERE questionsID =${req.body.questionsID}`;
 
-  let test = `UPDATE answers SET answers = CONCAT_WS("},", SUBSTRING(answers, 1, CHAR_LENGTH(answers) - 1),
+  let test = `UPDATE answers SET answers = CONCAT_WS(",", SUBSTRING(answers, 1, CHAR_LENGTH(answers) ),
 SUBSTRING('{"ans":"${req.body.ans}","email":"${req.body.email}"}', 1)) where questionsID =${
 // SUBSTRING('{"ans":"${req.body.ans}","email":"${req.body.email}"}', 1)) where questionsID =${
     req.body.questionsID

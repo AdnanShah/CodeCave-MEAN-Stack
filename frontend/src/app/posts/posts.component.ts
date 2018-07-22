@@ -41,8 +41,7 @@ export class PostsComponent implements OnInit {
         title: user.title,
         question: user.question,
         answers: JSON.parse(final),
-        questionsID:user.questionsID
- 
+        questionsID: user.questionsID
       });
     });
   }
@@ -76,6 +75,8 @@ export class PostsComponent implements OnInit {
       error => console.error(error)
     );
     console.log(this.ansForm.value);
+
+    location.reload();
   }
 
   ngOnInit() {
