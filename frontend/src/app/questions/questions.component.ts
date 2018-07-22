@@ -45,5 +45,6 @@ export class QuestionsComponent implements OnInit {
     console.log(this.askForm.value);
     this._router.navigate(["/dashboard"]);
     location.reload();
+    
   }
 }
