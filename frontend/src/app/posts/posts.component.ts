@@ -31,22 +31,36 @@ export class PostsComponent implements OnInit {
       error => console.error(error)
     );
   }
-
   displayData(data) {
     data.data.map((user, id) => {
-      var a = user.answers;
-      a = JSON.parse(a);
-      console.log("array", a);
+      let result = user.answers.substring(1, user.answers.length - 1);
+      let final = `[{${result}}]`;
+      console.log("final", JSON.parse(final));
+
       this.questions.push({
         title: user.title,
         question: user.question,
-        answers: a,
+        answers: JSON.parse(final),
         questionsID:user.questionsID
+ 
       });
     });
   }
+  // displayData(data) {
+  //   data.data.map((user, id) => {
+  //     var a = user.answers;
+  //     a = JSON.parse(a);
+  //     console.log("array", a);
+  //     this.questions.push({
+  //       title: user.title,
+  //       question: user.question,
+  //       answers: a,
+  //       questionsID:user.questionsID
+  //     });
+  //   });
+  // }
   ansQuestion(id) {
-    console.log(id)
+    console.log(id);
     if (!this.ansForm.valid) {
       console.log("Invalid Form");
       return;
