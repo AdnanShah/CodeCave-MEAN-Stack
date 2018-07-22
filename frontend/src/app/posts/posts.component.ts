@@ -33,15 +33,22 @@ export class PostsComponent implements OnInit {
   }
   displayData(data) {
     data.data.map((user, id) => {
-      let result = user.answers.substring(1, user.answers.length - 1);
-      let final = `[{${result}}]`;
-      console.log("final", JSON.parse(final));
+      let result =
+        user.answers != null
+          ? user.answers[0] !== ","
+            ? user.answers.substring(1, user.answers.length - 1)
+            : user.answers.substring(2, user.answers.length - 1)
+          : null;
+
+      // console.log("user.answers", user.answers[0]);
+      let final = result === null ? null : `[{${result}}]`;
+      // console.log("final", JSON.parse(final));
 
       this.questions.push({
         title: user.title,
         question: user.question,
         answers: JSON.parse(final),
-        questionsID: user.questionsID
+        questionsID: user.questionsID == null ? -1 : user.questionsID
       });
     });
   }
