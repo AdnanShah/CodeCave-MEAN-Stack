@@ -20,19 +20,24 @@ router.post("/answer", (req, res) => {
   }`;
   let jsonData = [{ ans: req.body.ans, email: req.body.email }];
 
-  var sql = `UPDATE answers SET answers ='${JSON.stringify(
-    jsonData
-  )}' WHERE questionsID =${req.body.questionsID}`;
+  let sql = `UPDATE answers SET answers ='${JSON.stringify(jsonData)}'
+   WHERE questionsID =${req.body.questionsID}`;
+
+  let test = `UPDATE answers SET answers = CONCAT_WS(",", SUBSTRING(answers, 1, CHAR_LENGTH(answers) - 1),
+SUBSTRING('{"ans":"${req.body.ans}","email":"${req.body.email}"}', 1)) where questionsID =${
+    req.body.questionsID
+  }`;
+
   Promise.using(mysql.getSqlConn(), con => {
-    con.query(sql, function(err, result) {
+    con.query(test, function(err, result) {
       console.log(getQuery);
       if (err) throw err;
       console.log(result.affectedRows + " record(s) updated");
     });
   });
 });
-router.post("/questions", (req, res) => {
 
+router.post("/questions", (req, res) => {
   req.getValidationResult().then(error => {
     if (!error.isEmpty()) {
       res.json({
