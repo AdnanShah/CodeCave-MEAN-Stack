@@ -40,31 +40,37 @@ export class PostsComponent implements OnInit {
             : user.answers.substring(2, user.answers.length - 1)
           : null;
 
-      // console.log("user.answers", user.answers[0]);
       let final = result === null ? null : `[{${result}}]`;
-      // console.log("final", JSON.parse(final));
-
+  
       this.questions.push({
         title: user.title,
+        vote: user.vote,
         question: user.question,
         answers: JSON.parse(final),
         questionsID: user.questionsID == null ? -1 : user.questionsID
       });
     });
   }
-  // displayData(data) {
-  //   data.data.map((user, id) => {
-  //     var a = user.answers;
-  //     a = JSON.parse(a);
-  //     console.log("array", a);
-  //     this.questions.push({
-  //       title: user.title,
-  //       question: user.question,
-  //       answers: a,
-  //       questionsID:user.questionsID
-  //     });
-  //   });
-  // }
+  voteUp(id) {
+    console.log(id);
+    // if (!this.ansForm.valid) {
+    //   console.log("Invalid Form");
+    //   return;
+    // }
+    // this.ansForm.value.email = this.email;
+    // this.ansForm.value.questionsID = id;
+
+    this._userService.voteUp(id).subscribe(
+      data => {
+        console.log(data);
+        // this._router.navigate(["/dashboard"]);
+      },
+      error => console.error(error)
+    );
+    console.log(this.ansForm.value);
+
+    location.reload();
+  }
   ansQuestion(id) {
     console.log(id);
     if (!this.ansForm.valid) {

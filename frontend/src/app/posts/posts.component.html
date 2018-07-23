@@ -7,10 +7,20 @@
     <div class="container m-3">
       <div class="container">
         <div class="col-md-12" *ngFor="let question of questions">
-          <h1>
-            <u>{{question.title}}</u>
-          </h1>
-          <h3 class="text-muted">{{question.question}}</h3>
+          <div>
+            <h1>
+              <u>{{question.title}}</u>
+            </h1>
+
+            <span class="text-danger pull-right">
+              <button class="btn btn-primary" (click)="voteUp(question.questionsID)">+</button>
+              {{question.vote}}
+              <button class="btn btn-danger" (click)="voteDown(question.questionsID)">-</button>
+            </span>
+
+          </div>
+
+          <p class="text-muted">{{question.question}}</p>
           <h4>
             <u class="text-primary">Answers:</u>
           </h4>

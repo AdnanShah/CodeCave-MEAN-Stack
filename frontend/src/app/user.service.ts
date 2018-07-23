@@ -37,17 +37,21 @@ export class UserService {
       }
     );
   }
+  voteUp(body: any) {
+    return this._http.post("http://127.0.0.1:4201/api/questions/voteUp", body, {
+      observe: "body",
+      // withCredentials: true,
+      headers: new HttpHeaders().append("Content-Type", "application/json")
+      // responseType: "text"
+    });
+  }
   ansQuestion(body: any) {
-    return this._http.post(
-      "http://127.0.0.1:4201/api/questions/answer",
-      body,
-      {
-        observe: "body",
-        // withCredentials: true,
-        headers: new HttpHeaders().append("Content-Type", "application/json")
-        // responseType: "text"
-      }
-    );
+    return this._http.post("http://127.0.0.1:4201/api/questions/answer", body, {
+      observe: "body",
+      // withCredentials: true,
+      headers: new HttpHeaders().append("Content-Type", "application/json")
+      // responseType: "text"
+    });
   }
 
   login(body: any) {
