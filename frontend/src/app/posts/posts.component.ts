@@ -41,7 +41,7 @@ export class PostsComponent implements OnInit {
           : null;
 
       let final = result === null ? null : `[{${result}}]`;
-  
+
       this.questions.push({
         title: user.title,
         vote: user.vote,
@@ -60,14 +60,14 @@ export class PostsComponent implements OnInit {
     // this.ansForm.value.email = this.email;
     // this.ansForm.value.questionsID = id;
 
-    this._userService.voteUp(id).subscribe(
+    this._userService.voteUp({ id }).subscribe(
       data => {
         console.log(data);
         // this._router.navigate(["/dashboard"]);
       },
       error => console.error(error)
     );
-    console.log(this.ansForm.value);
+    // console.log(this.ansForm.value);
 
     location.reload();
   }
