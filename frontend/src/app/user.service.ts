@@ -37,6 +37,14 @@ export class UserService {
       }
     );
   }
+  voteDown(body: any) {
+    return this._http.post("http://127.0.0.1:4201/api/questions/voteDown", body, {
+      observe: "body",
+      // withCredentials: true,
+      headers: new HttpHeaders().append("Content-Type", "application/json")
+      // responseType: "text"
+    });
+  }
   voteUp(body: any) {
     return this._http.post("http://127.0.0.1:4201/api/questions/voteUp", body, {
       observe: "body",

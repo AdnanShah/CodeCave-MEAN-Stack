@@ -29,16 +29,9 @@ SUBSTRING('{"ans":"${req.body.ans}","email":"${
     });
   });
 });
-router.post("/voteUp", (req, res) => {
-  console.log("voteUp", req.body.id);
+router.post("/voteDown", (req, res) => {
+  console.log("voteDown", req.body.id);
 
-  let user_signup_data = {
-    email: req.body.email,
-    title: req.body.title,
-    question: req.body.question
-  };
-  let upVote;
-  const insertQry = `insert into questions set ?`;
   const selectQry = `select vote from questions where id='${req.body.id}'`;
   const updateVote = `update questions set ? where id='${req.body.id}'`;
 
@@ -58,26 +51,43 @@ router.post("/voteUp", (req, res) => {
       upVote = res[0].vote + 1;
       console.log("upVote", upVote);
 
-      con.query(updateVote,{vote:res[0].vote + 1}).then((res, result) => {
+      con.query(updateVote, { vote: res[0].vote - 1 }).then((res, result) => {
         let json = JSON.stringify(result);
-        console.log(
-          "result",
-          // res[0].id,
-          // res.id,
-          JSON.stringify(result),
-          "json"
-        );
-        // con
-        //   .query(insertAns, { questionsID: res[0].id })
-        //   .then(function(err, result) {
-        //     // console.log(getQuery);
-        //     if (err) throw err;
-        //     // console.log(result.affectedRows + " record(s) updated");
-        //   });
+        console.log("result", JSON.stringify(result), "json");
       });
     });
   });
 });
+router.post("/voteUp", (req, res) => {
+  console.log("voteUp", req.body.id);
+
+  const selectQry = `select vote from questions where id='${req.body.id}'`;
+  const updateVote = `update questions set ? where id='${req.body.id}'`;
+
+  Promise.using(mysql.getSqlConn(), con => {
+    con.query(selectQry).then((res, result) => {
+      let json = JSON.stringify(result);
+      console.log(
+        "result",
+        res,
+        result,
+        json,
+        res[0].vote,
+        res.id,
+        JSON.stringify(result),
+        "json"
+      );
+      upVote = res[0].vote + 1;
+      console.log("upVote", upVote);
+
+      con.query(updateVote, { vote: res[0].vote + 1 }).then((res, result) => {
+        let json = JSON.stringify(result);
+        console.log("result", JSON.stringify(result), "json");
+      });
+    });
+  });
+});
+
 router.post("/questions", (req, res) => {
   console.log("req.body", req.body);
 

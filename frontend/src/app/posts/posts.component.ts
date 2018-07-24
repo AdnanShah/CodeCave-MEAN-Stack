@@ -51,26 +51,28 @@ export class PostsComponent implements OnInit {
       });
     });
   }
-  voteUp(id) {
-    console.log(id);
-    // if (!this.ansForm.valid) {
-    //   console.log("Invalid Form");
-    //   return;
-    // }
-    // this.ansForm.value.email = this.email;
-    // this.ansForm.value.questionsID = id;
 
-    this._userService.voteUp({ id }).subscribe(
+  voteDown(id) {
+    console.log(id);
+    this._userService.voteDown({ id }).subscribe(
       data => {
         console.log(data);
-        // this._router.navigate(["/dashboard"]);
       },
       error => console.error(error)
     );
-    // console.log(this.ansForm.value);
-
     location.reload();
   }
+  voteUp(id) {
+    console.log(id);
+    this._userService.voteUp({ id }).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => console.error(error)
+    );
+    location.reload();
+  }
+
   ansQuestion(id) {
     console.log(id);
     if (!this.ansForm.valid) {
@@ -79,11 +81,11 @@ export class PostsComponent implements OnInit {
     }
     this.ansForm.value.email = this.email;
     this.ansForm.value.questionsID = id;
+    this.ansForm.value.ans = this.ansForm.value.ans.trim();
 
     this._userService.ansQuestion(this.ansForm.value).subscribe(
       data => {
         console.log(data);
-        // this._router.navigate(["/dashboard"]);
       },
       error => console.error(error)
     );
