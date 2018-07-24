@@ -35,6 +35,7 @@ export class QuestionsComponent implements OnInit {
       return;
     }
     this.askForm.value.email = this.email;
+    this.askForm.value.question = this.askForm.value.question.trim();
 
     this._userService.askQuestion(this.askForm.value).subscribe(
       data => {
