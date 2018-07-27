@@ -19,7 +19,7 @@
                     </li>
 
 
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf='_userService.isLoggedIn()'>
                         <a class="nav-link" [routerLink]="['/posts']" routerLinkActive="active">Posts</a>
                         <span class="sr-only">(current)</span>
                     </li>
