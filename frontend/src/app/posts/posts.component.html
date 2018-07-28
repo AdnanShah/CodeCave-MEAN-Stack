@@ -3,7 +3,7 @@
   </div>
   <div class="p-2 col-8 flex-fill">
 
-    <div class="container m-3">
+    <!-- <div class="container m-3">
       <div class="container">
         <div class="col-md-12" *ngFor="let question of questions">
           <div>
@@ -33,11 +33,6 @@
             </ul>
           </div>
           <form [formGroup]="ansForm">
-            <!-- <div class="form-group">
-                <label for="exampleInputUsername">Question Title</label>
-                <input formControlName="title" type="text" class="form-control" id="exampleInputUsername" aria-describedby="userHelp" placeholder="Title">
-                <small id="userHelp" class="form-text text-muted"></small>
-              </div> -->
 
             <div class="form-group">
               <label for="passwordInput">Your Answer</label>
@@ -49,11 +44,9 @@
             </div>
           </form>
           <br/>
-          <!-- </div> -->
 
 
           <p class="bg-success text-light pl-2">Autrhor: {{question.name}}</p>
-          <!-- <p> </p> -->
           <div>
             <span class="badge">Posted {{question.dated}}</span>
             <div class="pull-right">
@@ -70,7 +63,80 @@
           <hr>
         </div>
       </div>
+    </div> -->
+
+    <div class="container">
+      <div class="card" *ngFor="let question of questions">
+        <div class="container-fliud">
+          <div class="wrapper row">
+            <!-- <div class="preview col-md-6">
+                </div> -->
+            <div class="details col-md-12">
+              <h3 class="product-title">q:: {{question.title}}</h3>
+              <div class="">
+                <div class="rating pull-left">
+                  <div class="stars">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <br/>
+                    <span class="review-no">41 reviews</span>
+                  </div>
+                </div>
+                <div class="rating pull-right">
+                  <div class="stars">
+                    <!-- <span class="fa fa-star checked"></span>
+                    <span class=" orange not-available" data-toggle="tooltip" title="Not In store"></span> -->
+                    <span class="text-danger pull-right">
+                        <button class="btn btn-primary btn-size" (click)="voteUp(question.questionsID)">+</button>
+                        <button class="btn btn-danger btn-size" (click)="voteDown(question.questionsID)">-</button>
+                      </span>
+
+                    <br/>
+
+                    <span class="review-no">Votes: {{question.vote}}
+                    </span>
+          
+                  </div>
+                </div>
+              </div>
+              <p class="product-description">{{question.question}}</p>
+              <!-- <h4 class="price">Answer: </h4> -->
+              <p class="vote">
+
+                <li class="" *ngFor="let ans of question.answers;let i = index">
+                  <strong>Ans::{{i+1}}</strong>
+                  <br/>
+                  <div class="ml-5">{{ans.ans}}
+                    <span class="pull-right">{{ans.email}}</span>
+                  </div>
+                </li>
+                <a href="">
+                  <strong>show 4 more comments</strong>
+                </a>
+              </p>
+              <form [formGroup]="ansForm">
+                <div class="form-group">
+                  <label for="">
+                    <strong>Your Answer </strong>
+                  </label>
+                  <textarea formControlName="ans" type="text" class="form-control" id="ans" aria-describedby="passHelp" placeholder="Enter your answer here">
+                   </textarea>
+                </div>
+                <div class="form-group" style="text-align:center;">
+                  <button type="button" class="btn btn-dark" (click)="ansQuestion(question.questionsID)">Submit</button>
+                </div>
+              </form>
+              <br/>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
 
   </div>
   <div class="p-2 col-2 flex-fill">

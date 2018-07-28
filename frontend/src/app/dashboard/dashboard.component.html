@@ -1,40 +1,6 @@
 <div class="d-flex mt-5 justify-content-between">
   <div style="width: 100px; height: 700px;" class="p-2 col-2 mh-100 flex-fill">
   </div>
-  <!-- <div class="p-2 col-8 flex-fill">
-    <div class="container">
-      <div class="">
-        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let question of questions">
-          <ngb-panel>
-            <ng-template ngbPanelTitle class="row">
-              <span class="col">
-                <b>{{question.title}}</b>
-                <span class="float-right"> Rating &#9733;
-                </span>
-              </span>
-            </ng-template>
-
-
-            <ng-template ngbPanelContent *ngFor="let ans of question.answers">
-              <ul>
-                {{question.question}}
-                <li class="" *ngFor="let ans of question.answers">
-                  {{ans.ans}}
-                  <span class="pull-right">{{ans.email}}</span>
-                </li>
-              </ul>
-
-              <br/>
-            </ng-template>
-
-          </ngb-panel>
-        </ngb-accordion>
-      </div>
-    </div>
-
-  </div> -->
-
-
   <div class="container">
     <div class="card" *ngFor="let question of questions">
       <div class="container-fliud">
@@ -62,7 +28,9 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star"></span>
                   <br/>
-                  <span class="review-no">Votes</span>
+                  <span class="review-no">Votes: {{question.vote}}
+                  </span>
+
                 </div>
               </div>
             </div>
@@ -73,8 +41,9 @@
               <li class="" *ngFor="let ans of question.answers;let i = index">
                 <strong>Ans::{{i+1}}</strong>
                 <br/>
-                <div class="ml-5">{{ans.ans}}</div>
-                <span class="pull-right">{{ans.email}}</span>
+                <div class="ml-5">{{ans.ans}}
+                  <span class="pull-right">{{ans.email}}</span>
+                </div>
               </li>
               <a href="">
                 <strong>show 4 more comments</strong>
@@ -86,9 +55,9 @@
               <span class="size" data-toggle="tooltip" title="large">l</span>
               <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
             </h5> -->
-            <span class="colors">Vote:
+            <!-- <span class="colors">Vote:
               <span class=" orange not-available" data-toggle="tooltip" title="Not In store"></span>
-            </span>
+            </span> -->
             <div class="action">
               <div class="add-to-cart btn btn-default mr-1">Login to add your answer</div>
               <button class="like btn btn-default" type="button" [routerLink]="['/login']">

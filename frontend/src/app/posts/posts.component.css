@@ -1,142 +1,215 @@
-.btn-size {
-  /* font-size: 5px; */
-  width: 2.5em;
-  height: 1.5em;
-  padding: 3px
+/*****************globals*************/
+body {
+  font-family: "open sans";
+  overflow-x: hidden;
 }
 
-.row.content {
-  height: 450px;
+img {
+  max-width: 100%;
 }
 
-.sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
+.preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
-
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
+@media screen and (max-width: 996px) {
+  .preview {
+    margin-bottom: 20px;
   }
-  .row.content {
-    height: auto;
-  }
 }
 
-.menu .accordion-heading {
-  position: relative;
-}
-.menu .accordion-heading .edit {
-  position: absolute;
-  top: 8px;
-  right: 30px;
-}
-.menu .area {
-  border-left: 4px solid #f38787;
-}
-.menu .equipamento {
-  border-left: 4px solid #65c465;
-}
-.menu .ponto {
-  border-left: 4px solid #98b3fa;
-}
-.menu .collapse.in {
-  overflow: visible;
+.preview-pic {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px;
+}
+.preview-thumbnail.nav-tabs li {
+  width: 18%;
+  margin-right: 2.5%;
+}
+.preview-thumbnail.nav-tabs li img {
+  max-width: 100%;
+  display: block;
+}
+.preview-thumbnail.nav-tabs li a {
+  padding: 0;
+  margin: 0;
+}
+.preview-thumbnail.nav-tabs li:last-of-type {
+  margin-right: 0;
+}
 
-
-
-/*
-    Image credits:
-    uifaces.com (http://uifaces.com/authorized)
-*/
-
-#login { display: none; }
-.login,
-.logout { 
-    position: absolute; 
-    top: -3px;
-    right: 0;
-}
-.page-header { position: relative; }
-.reviews {
-    color: #555;    
-    font-weight: bold;
-    margin: 10px auto 20px;
-}
-.notes {
-    color: #999;
-    font-size: 12px;
-}
-.media .media-object { max-width: 120px; }
-.media-body { position: relative; }
-.media-date { 
-    position: absolute; 
-    right: 25px;
-    top: 25px;
-}
-.media-date li { padding: 0; }
-.media-date li:first-child:before { content: ''; }
-.media-date li:before { 
-    content: '.'; 
-    margin-left: -2px; 
-    margin-right: 2px;
-}
-.media-comment { margin-bottom: 20px; }
-.media-replied { margin: 0 0 20px 50px; }
-.media-replied .media-heading { padding-left: 6px; }
-
-.btn-circle {
-    font-weight: bold;
-    font-size: 12px;
-    padding: 6px 15px;
-    border-radius: 20px;
-}
-.btn-circle span { padding-right: 6px; }
-.embed-responsive { margin-bottom: 20px; }
 .tab-content {
-    padding: 50px 15px;
-    border: 1px solid #ddd;
-    border-top: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+  overflow: hidden;
 }
-.custom-input-file {
-    overflow: hidden;
-    position: relative;
-    width: 120px;
-    height: 120px;
-    background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');    
-    background-size: 120px;
-    border-radius: 120px;
+.tab-content img {
+  width: 100%;
+  -webkit-animation-name: opacity;
+  animation-name: opacity;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
 }
-input[type="file"]{
-    z-index: 999;
-    line-height: 0;
-    font-size: 0;
-    position: absolute;
+
+.card {
+  margin-top: 50px;
+  background: #eee;
+  padding: 3em;
+  line-height: 1.5em;
+}
+
+@media screen and (min-width: 997px) {
+  .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.details {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.product-title,
+.price,
+.sizes,
+.colors {
+  text-transform: UPPERCASE;
+  font-weight: bold;
+}
+
+.checked,
+.price span {
+  color: #54d400;
+}
+
+.product-title,
+.rating,
+.product-description,
+.price,
+.vote,
+.sizes {
+  margin-bottom: 15px;
+}
+
+.product-title {
+  margin-top: 0;
+}
+
+.size {
+  margin-right: 10px;
+}
+.size:first-of-type {
+  margin-left: 40px;
+}
+
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px;
+}
+.color:first-of-type {
+  margin-left: 20px;
+}
+
+.add-to-cart,
+.like {
+  background: #54d400;
+  padding: .2em .5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.add-to-cart:hover,
+.like:hover {
+  background: #b36800;
+  color: #fff;
+}
+
+.not-available {
+  text-align: center;
+  line-height: 2em;
+}
+.not-available:before {
+  font-family: fontawesome;
+  content: "\f00d";
+  color: #fff;
+}
+
+.orange {
+  background: #54d400;
+}
+
+.green {
+  background: #85ad00;
+}
+
+.blue {
+  background: #0076ad;
+}
+
+.tooltip-inner {
+  padding: 1.3em;
+}
+
+@-webkit-keyframes opacity {
+  0% {
     opacity: 0;
-    filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
-    margin: 0;
-    padding:0;
-    left:0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
-.uploadPhoto {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    display: none;
-    width: 50%;
-    height: 50%;
-    color: #fff;    
-    text-align: center;
-    line-height: 60px;
-    text-transform: uppercase;    
-    background-color: rgba(0,0,0,.3);
-    border-radius: 50px;
-    cursor: pointer;
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
-.custom-input-file:hover .uploadPhoto { display: block; }
+
+/*# sourceMappingURL=style.css.map */

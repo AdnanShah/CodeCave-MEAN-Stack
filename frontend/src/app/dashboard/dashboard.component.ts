@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(private _router: Router, private _userService: UserService) {
     this._userService.posts().subscribe(
       data => {
-        console.log(data);
+        console.log("data",data);
         this.displayData(data);
       },
       error => console.error(error)
@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
       this.questions.push({
         title: user.title,
         question: user.question,
+        vote: user.vote,
         answers: JSON.parse(final)
       });
     });
