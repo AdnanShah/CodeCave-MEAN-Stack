@@ -11,7 +11,7 @@
 
 var serverURL = 'https://localhost:3338/';
 var secret = 'hT_$øper$ecreT';
-var host = 'localhost';
+var host = '127.0.0.1';
 var user = 'root';
 var password = null;
 //var password = 'hyj6h5H6!5Tr';
