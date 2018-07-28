@@ -33,8 +33,73 @@
     </div>
 
   </div> -->
- 
- 
+
+
+  <div class="container">
+    <div class="card" *ngFor="let question of questions">
+      <div class="container-fliud">
+        <div class="wrapper row">
+          <!-- <div class="preview col-md-6">
+            </div> -->
+          <div class="details col-md-12">
+            <h3 class="product-title">q:: {{question.title}}</h3>
+            <div class="">
+              <div class="rating pull-left">
+                <div class="stars">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <br/>
+                  <span class="review-no">41 reviews</span>
+                </div>
+              </div>
+              <div class="rating pull-right">
+                <div class="stars">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <br/>
+                  <span class="review-no">Votes</span>
+                </div>
+              </div>
+            </div>
+            <p class="product-description">{{question.question}}</p>
+            <!-- <h4 class="price">Answer: </h4> -->
+            <p class="vote">
+
+              <li class="" *ngFor="let ans of question.answers;let i = index">
+                <strong>Ans::{{i+1}}</strong>
+                <br/>
+                <div class="ml-5">{{ans.ans}}</div>
+                <span class="pull-right">{{ans.email}}</span>
+              </li>
+              <a href="">
+                <strong>show 4 more comments</strong>
+              </a>
+            </p>
+            <!-- <h5 class="sizes">sizes:
+              <span class="size" data-toggle="tooltip" title="small">s</span>
+              <span class="size" data-toggle="tooltip" title="medium">m</span>
+              <span class="size" data-toggle="tooltip" title="large">l</span>
+              <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+            </h5> -->
+            <span class="colors">Vote:
+              <span class=" orange not-available" data-toggle="tooltip" title="Not In store"></span>
+            </span>
+            <div class="action">
+              <div class="add-to-cart btn btn-default mr-1">Login to add your answer</div>
+              <button class="like btn btn-default" type="button" [routerLink]="['/login']">
+                <span class="fa fa-heart"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="p-2 col-2 flex-fill">
   </div>
 </div>

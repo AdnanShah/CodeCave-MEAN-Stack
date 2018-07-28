@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
     );
   }
   questions: Array<any> = [];
-
+ 
   displayData(data) {
     data.data.map((user, id) => {
       let result =
