@@ -1,4 +1,4 @@
-# Material-design-Example-with-Angular-4
+# A full stack app with Angular-4,NodeJS,ExpressJS,sequelize and ngx-bootstrap  
 Before cloning the project, make sure you have Nodejs, npm and Angular CLi installed.
 
 First, clone the project:
