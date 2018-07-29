@@ -1,13 +1,11 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes');
 var cors = require('cors');
-const jwt = require('jsonwebtoken');
 const configFile = require('./config/configuration');
 
 require('./config/database');
@@ -36,34 +34,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join('config')));
 
-app.use( (req, res, next) =>{
- // res.contentType('application/json');
- // console.log("req headers",req.headers);
- // console.log("whole req",req);
-  next();
-});
-// app.use(function ( req, res, next ) {
-//   var headers = {};
-
-//   // set header to handle the CORS
-//   headers['Access-Control-Allow-Origin'] = '*';
-//   headers['Access-Control-Allow-Headers'] = 'Content-Type,x-access-key,x-access-token';
-//   headers['Access-Contrl-Allow-Methods'] = 'PUT, POST, GET, DELETE, OPTIONS';
-//   headers["Access-Control-Max-Age"] = '86400';
-//   headers['x-access-key']='x-access-key';
-//   headers['x-access-token']='x-access-token';
-//  // res.writeHead(200, headers);
-
-//   if ( req.method === 'OPTIONS' ) {
-//       console.log('OPTIONS SUCCESS');
-//    //console.log("req headers",req.header);
-//       // res.json({ status: 500, message: 'QueryError' + err });
-//       // res.end();
-//   }
-
-//   console.log("req headers",req.headers);
-//     next()
-// });
 
 // HTTP routes
 routes.router(app);

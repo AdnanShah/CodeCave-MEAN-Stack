@@ -1,7 +1,5 @@
 
 const configFile = require('./configuration');
-const mysql = require('mysql');
-const logger = require('../utils/logger');
 const mysqlPromise = require('promise-mysql');
 const Sequelize = require('sequelize');
 
