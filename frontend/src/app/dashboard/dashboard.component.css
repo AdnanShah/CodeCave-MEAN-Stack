@@ -8,6 +8,11 @@ img {
   max-width: 100%;
 }
 
+
+.bg-custom-color {
+  background: #54d400;
+  border-radius: 5%
+}
 .preview {
   display: -webkit-box;
   display: -webkit-flex;

@@ -23,12 +23,16 @@
               </div>
               <div class="rating pull-right">
                 <div class="stars">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
+                  <span class="text-danger pull-right">
+                    <button class="btn btn-primary fa fa-thumbs-up" disabled></button>
+                    <button class="btn btn-danger fa fa-thumbs-down" disabled></button>
+                  </span>
                   <br/>
-                  <span class="review-no">Votes: {{question.vote}}
+
+                  <span class="review-no">Votes:
+                    <strong>
+                      {{question.vote}}
+                    </strong>
                   </span>
 
                 </div>
@@ -36,19 +40,21 @@
             </div>
             <p class="product-description">{{question.question}}</p>
             <!-- <h4 class="price">Answer: </h4> -->
-            <p class="vote">
+            <!-- <p class="vote"> -->
 
-              <li class="" *ngFor="let ans of question.answers;let i = index">
-                <strong>Ans::{{i+1}}</strong>
-                <br/>
-                <div class="ml-5">{{ans.ans}}
-                  <span class="pull-right">{{ans.email}}</span>
-                </div>
-              </li>
-              <a href="">
-                <strong>show 4 more comments</strong>
-              </a>
-            </p>
+            <div class="" *ngFor="let ans of question.answers;let i = index">
+              <!-- <strong>Ans::{{i+1}}</strong> -->
+              <br/>
+              <div class="ml-5">{{ans.ans}}
+                <span class="pull-right text-light bg-custom-color p-1">{{ans.email}}</span>
+              </div>
+              <hr/>
+
+            </div>
+            <a class="bg-custom-color text-light p-1 mb-2">
+              <strong>show 4 more comments</strong>
+            </a>
+            <!-- </p> -->
             <!-- <h5 class="sizes">sizes:
               <span class="size" data-toggle="tooltip" title="small">s</span>
               <span class="size" data-toggle="tooltip" title="medium">m</span>
@@ -61,7 +67,7 @@
             <div class="action">
               <div class="add-to-cart btn btn-default mr-1">Login to add your answer</div>
               <button class="like btn btn-default" type="button" [routerLink]="['/login']">
-                <span class="fa fa-heart"></span>
+                <span class="fa fa-sign-in"></span>
               </button>
             </div>
           </div>

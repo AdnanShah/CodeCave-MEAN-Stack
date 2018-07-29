@@ -11,14 +11,14 @@ export class DashboardComponent implements OnInit {
   constructor(private _router: Router, private _userService: UserService) {
     this._userService.posts().subscribe(
       data => {
-        console.log("data",data);
+        console.log("data", data);
         this.displayData(data);
       },
       error => console.error(error)
     );
   }
   questions: Array<any> = [];
- 
+
   displayData(data) {
     data.data.map((user, id) => {
       let result =
@@ -29,13 +29,16 @@ export class DashboardComponent implements OnInit {
           : null;
 
       let final = result === null ? null : `[{${result}}]`;
-      console.log("final", JSON.parse(final));
+      // console.log("final", JSON.parse(final));
+
+      let s = final.replace(/[\u0000-\u0019]+/g, "");
+      let answers = JSON.parse(s);
 
       this.questions.push({
         title: user.title,
         question: user.question,
         vote: user.vote,
-        answers: JSON.parse(final)
+        answers: answers
       });
     });
   }

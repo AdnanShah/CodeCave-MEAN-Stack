@@ -41,12 +41,15 @@ export class PostsComponent implements OnInit {
           : null;
 
       let final = result === null ? null : `[{${result}}]`;
+      let s = final.replace(/[\u0000-\u0019]+/g, "");
+      let answers = JSON.parse(s);
 
       this.questions.push({
         title: user.title,
         vote: user.vote,
         question: user.question,
-        answers: JSON.parse(final),
+        // answers: JSON.parse(final),
+        answers: answers,
         questionsID: user.questionsID == null ? -1 : user.questionsID
       });
     });

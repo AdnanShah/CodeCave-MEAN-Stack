@@ -87,42 +87,39 @@
                 </div>
                 <div class="rating pull-right">
                   <div class="stars">
-                    <!-- <span class="fa fa-star checked"></span>
-                    <span class=" orange not-available" data-toggle="tooltip" title="Not In store"></span> -->
                     <span class="text-danger pull-right">
-                        <button class="btn btn-primary btn-size" (click)="voteUp(question.questionsID)">+</button>
-                        <button class="btn btn-danger btn-size" (click)="voteDown(question.questionsID)">-</button>
-                      </span>
-
+                      <button class="btn btn-primary fa fa-thumbs-up" (click)="voteUp(question.questionsID)"></button>
+                      <button class="btn btn-danger fa fa-thumbs-down" (click)="voteDown(question.questionsID)"></button>
+                    </span>
                     <br/>
 
-                    <span class="review-no">Votes: {{question.vote}}
+                    <span class="review-no">Votes:
+                      <strong>
+                        {{question.vote}}
+                      </strong>
                     </span>
-          
+
                   </div>
                 </div>
               </div>
               <p class="product-description">{{question.question}}</p>
-              <!-- <h4 class="price">Answer: </h4> -->
-              <p class="vote">
-
-                <li class="" *ngFor="let ans of question.answers;let i = index">
-                  <strong>Ans::{{i+1}}</strong>
-                  <br/>
-                  <div class="ml-5">{{ans.ans}}
-                    <span class="pull-right">{{ans.email}}</span>
-                  </div>
-                </li>
-                <a href="">
-                  <strong>show 4 more comments</strong>
-                </a>
-              </p>
+              <div *ngFor="let ans of question.answers;let i = index">
+                <br/>
+                <div class="ml-5">
+                  {{ans.ans}}
+                  <span class="pull-right text-light bg-custom-color p-1">{{ans.email}}</span>
+                </div>
+                <hr/>
+              </div>
+              <a class="bg-custom-color text-light p-1">
+                <strong>show 4 more comments</strong>
+              </a>
               <form [formGroup]="ansForm">
                 <div class="form-group">
                   <label for="">
                     <strong>Your Answer </strong>
                   </label>
-                  <textarea formControlName="ans" type="text" class="form-control" id="ans" aria-describedby="passHelp" placeholder="Enter your answer here">
+                  <textarea rows="5" formControlName="ans" type="text" class="form-control" id="ans" aria-describedby="passHelp" placeholder="Enter your answer here">
                    </textarea>
                 </div>
                 <div class="form-group" style="text-align:center;">
