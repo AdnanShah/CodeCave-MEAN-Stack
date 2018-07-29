@@ -18,6 +18,7 @@ export class PostsComponent implements OnInit {
   email: any = "";
   currentUser: any;
   questions: Array<any> = [];
+  item: Array<any> = [];
 
   constructor(private _router: Router, private _userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -32,6 +33,7 @@ export class PostsComponent implements OnInit {
     );
   }
   displayData(data) {
+    console.log("data.data", data.data);
     data.data.map((user, id) => {
       let result =
         user.answers != null
@@ -43,12 +45,17 @@ export class PostsComponent implements OnInit {
       let final = result === null ? null : `[{${result}}]`;
       let s = final.replace(/[\u0000-\u0019]+/g, "");
       let answers = JSON.parse(s);
+      // let tags = user.tags.substring(1, user.answers.length);
+      let tags = user.tags != null ? user.tags : "non";
+      console.log("tags", JSON.parse(tags),answers);
 
       this.questions.push({
         title: user.title,
         vote: user.vote,
+        email: user.email,
         question: user.question,
         // answers: JSON.parse(final),
+        tags: JSON.parse(tags),
         answers: answers,
         questionsID: user.questionsID == null ? -1 : user.questionsID
       });

@@ -41,14 +41,28 @@
                 </div>
               </div>
               <p class="product-description">{{question.question}}</p>
-              <div *ngFor="let ans of question.answers;let i = index">
+              <tag-input [ngModel]="question.tags" theme='dark' disable=" true" removable="false">
+              </tag-input>
+              <!-- <div *ngFor="let ans of question.answers;let i = index">
                 <br/>
                 <div class="ml-5">
                   {{ans.ans}}
-                  <span class="pull-right text-light bg-custom-color p-1">{{ans.email}}</span>
+                  <span *ngIf="ans.email" class="pull-right text-light bg-custom-color p-1">{{ans.email}}</span>
                 </div>
                 <hr/>
+              </div> -->
+
+
+              <div class="answer-border m-3">
+                <div *ngFor="let ans of question.answers;let i = index">
+                  <br/>
+                  <div class="ml-5">{{ans.ans}}
+                    <span class="pull-right text-light bg-custom-color p-1 mr-1 mb-1">{{ans.email}}</span>
+                  </div>
+                  <hr/>
+                </div>
               </div>
+
               <a class="bg-custom-color text-light p-1">
                 <strong>show 4 more comments</strong>
               </a>

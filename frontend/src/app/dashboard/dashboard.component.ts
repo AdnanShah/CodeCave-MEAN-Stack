@@ -33,12 +33,14 @@ export class DashboardComponent implements OnInit {
 
       let s = final.replace(/[\u0000-\u0019]+/g, "");
       let answers = JSON.parse(s);
+      let tags = user.tags != null ? user.tags : "non";
 
       this.questions.push({
         title: user.title,
         question: user.question,
         vote: user.vote,
-        answers: answers
+        answers: answers,
+        tags: JSON.parse(tags)
       });
     });
   }
