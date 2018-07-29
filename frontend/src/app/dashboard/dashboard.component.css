@@ -4,6 +4,10 @@ body {
   overflow-x: hidden;
 }
 
+.tag-size {
+  font-size: 75%;
+  line-height: 5%;
+}
 img {
   max-width: 100%;
 }

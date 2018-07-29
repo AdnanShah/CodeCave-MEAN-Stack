@@ -41,8 +41,8 @@
                 </div>
               </div>
               <p class="product-description">{{question.question}}</p>
-              <tag-input [ngModel]="question.tags" theme='dark' disable=" true" removable="false">
-              </tag-input>
+              <!-- <tag-input [ngModel]="question.tags" theme='dark' disable=" true" removable="false">
+              </tag-input> -->
               <!-- <div *ngFor="let ans of question.answers;let i = index">
                 <br/>
                 <div class="ml-5">
@@ -62,6 +62,15 @@
                   <hr/>
                 </div>
               </div>
+              <span class="tag-size">
+                <tag-input [ngModel]="question.tags" theme='dark' disable=" true" removable="false">
+                </tag-input>
+              </span>
+
+              <a href="" class="  p-1 mb-2">
+                show 4 more comments
+              </a>
+
 
               <a class="bg-custom-color text-light p-1">
                 <strong>show 4 more comments</strong>
