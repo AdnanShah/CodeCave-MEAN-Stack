@@ -217,13 +217,9 @@ img {
 }
 
 .answer-border {
-  border-top-style: dotted;
-  border-right-style: solid;
-  border-bottom-style: dotted;
-  border-left-style: solid;
-  /* border-color: #54d400; */
-  /* border: 1px solid #54d400 */
-}
+  border-left-style: solid; 
+  border-color: #54d400;
+ }
 
 
 /*# sourceMappingURL=style.css.map */
