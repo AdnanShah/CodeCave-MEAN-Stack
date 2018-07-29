@@ -1,0 +1,12 @@
+
+  .card {
+    margin-top: 50px;
+    background: #eee;
+    padding: 3em;
+    line-height: 1.5em;
+  }
+  
+  .bg-custom-color {
+    background: #54d400;
+    border-radius: 5%
+  }

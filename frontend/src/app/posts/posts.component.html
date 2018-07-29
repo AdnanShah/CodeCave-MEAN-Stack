@@ -3,68 +3,6 @@
   </div>
   <div class="p-2 col-8 flex-fill">
 
-    <!-- <div class="container m-3">
-      <div class="container">
-        <div class="col-md-12" *ngFor="let question of questions">
-          <div>
-            <h1>
-              <u>{{question.title}}</u>
-            </h1>
-
-            <span class="text-danger pull-right">
-              <button class="btn btn-primary btn-size" (click)="voteUp(question.questionsID)">+</button>
-              {{question.vote}}
-              <button class="btn btn-danger btn-size" (click)="voteDown(question.questionsID)">-</button>
-            </span>
-
-          </div>
-
-
-          <p class="text-muted">{{question.question}}</p>
-          <h4>
-            <u class="text-primary">Answers:</u>
-          </h4>
-          <div>
-            <ul>
-              <li class="" *ngFor="let ans of question.answers">
-                {{ans.ans}}
-                <span class="pull-right">{{ans.email}}</span>
-              </li>
-            </ul>
-          </div>
-          <form [formGroup]="ansForm">
-
-            <div class="form-group">
-              <label for="passwordInput">Your Answer</label>
-              <textarea formControlName="ans" type="text" class="form-control" id="ans" aria-describedby="passHelp" placeholder="">
-                 </textarea>
-            </div>
-            <div class="form-group" style="text-align:center;">
-              <button type="button" class="btn btn-dark" (click)="ansQuestion(question.questionsID)">Submit</button>
-            </div>
-          </form>
-          <br/>
-
-
-          <p class="bg-success text-light pl-2">Autrhor: {{question.name}}</p>
-          <div>
-            <span class="badge">Posted {{question.dated}}</span>
-            <div class="pull-right">
-              <span class="badge badge-primary">Primary</span>
-              <span class="badge badge-secondary">Secondary</span>
-              <span class="badge badge-success">Success</span>
-              <span class="badge badge-danger">Danger</span>
-              <span class="badge badge-warning">Warning</span>
-              <span class="badge badge-info">Info</span>
-              <span class="badge badge-light">Light</span>
-              <span class="badge badge-dark">Dark</span>
-            </div>
-          </div>
-          <hr>
-        </div>
-      </div>
-    </div> -->
-
     <div class="container">
       <div class="card" *ngFor="let question of questions">
         <div class="container-fliud">

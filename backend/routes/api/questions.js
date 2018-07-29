@@ -94,7 +94,8 @@ router.post("/questions", (req, res) => {
   let user_signup_data = {
     email: req.body.email,
     title: req.body.title,
-    question: req.body.question
+    question: req.body.question,
+    tags: JSON.stringify(req.body.tags)
   };
 
   const insertQry = `insert into questions set ?`;

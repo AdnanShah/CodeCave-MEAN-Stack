@@ -12,15 +12,13 @@ export class QuestionsComponent implements OnInit {
   askForm: FormGroup = new FormGroup({
     // email: new FormControl(null, [Validators.email, Validators.required]),
     title: new FormControl(null, Validators.required),
-    question: new FormControl(null, Validators.required)
+    question: new FormControl(null, Validators.required),
+    tags: new FormControl(null, Validators.required)
   });
   email: any = "";
   currentUser: any;
+  item:any;
 
-  itemsAsObjects = [
-    { value: 0, display: "Angular4" },
-    { value: 1, display: "ReactJS" }
-  ];
   constructor(private _router: Router, private _userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
     console.log("currentUser", this.currentUser);
