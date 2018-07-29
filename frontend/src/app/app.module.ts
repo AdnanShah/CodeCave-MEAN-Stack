@@ -18,6 +18,11 @@ import { QuestionsComponent } from "./questions/questions.component";
 
 import { AuthGuard } from "./auth/auth.guard";
 
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +35,10 @@ import { AuthGuard } from "./auth/auth.guard";
   ],
   imports: [
     NgbModule.forRoot(),
+    TagInputModule, 
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

@@ -11,6 +11,7 @@ export class UserhomeComponent implements OnInit {
   username: any = "";
   email: any = "";
   currentUser: any;
+
   // users: User[] = [];
   constructor(private _user: UserService, private _router: Router) {
     // this._user

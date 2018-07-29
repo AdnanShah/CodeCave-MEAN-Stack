@@ -17,6 +17,10 @@ export class QuestionsComponent implements OnInit {
   email: any = "";
   currentUser: any;
 
+  itemsAsObjects = [
+    { value: 0, display: "Angular4" },
+    { value: 1, display: "ReactJS" }
+  ];
   constructor(private _router: Router, private _userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
     console.log("currentUser", this.currentUser);
@@ -46,6 +50,5 @@ export class QuestionsComponent implements OnInit {
     console.log(this.askForm.value);
     this._router.navigate(["/dashboard"]);
     location.reload();
-    
   }
 }
