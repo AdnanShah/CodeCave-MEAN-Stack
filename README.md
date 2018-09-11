@@ -6,7 +6,7 @@ First, clone the project:
 git clone https://github.com/AdnanShah/MEAN-Project.git
 ```
 
-then, check out to mainApp branch and install the packages using npm in both the folders(frontend and backend) :
+then,install the packages using npm in both the folders(frontend and backend) :
 
 ```
 npm install
